@@ -5,4 +5,4 @@ The purporse of this project was to play both sides of the coin, one as a Red Te
 * Analyze logs of attack using the Elastic Stack (ELK) tool Kibana to determine indicators of attack and compromise
 * Document the results including the attack, the analysis, and recommendations for hardening the system
 
-All the documentation is organized here for you to see what the machine was vulnerable to, how the machine was exploited, the findings and analysis of the Red Team and Blue Team, and the mitigation recommendations to improve the security of the system.
+The documentation is laid out with a [report](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/Capstone_Engagement_Report.md "Report") and then slides in a [pdf](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/RedvsBlueSlides.pdf "PDF slides") or [Power Point](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/RedvsBlueSlides.pptx "Power Point") format. This report contains the information on the Red Team engagement, the Blue Team analysis, and the mitigation strategies.
