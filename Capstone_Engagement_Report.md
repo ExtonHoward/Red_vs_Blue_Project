@@ -115,7 +115,7 @@ Upon further inspection of the files in the WebDAV directory, found one of the f
 
 Several vulnerabilities were discovered during the completetion of this excercise. Per the customer request, the team had to identify and offer mitigation strategies for the more critical vulnerabilities.
 
-#### Sensitive Data Exposure ####
+### Sensitive Data Exposure ###
 During the assessment, the Red Team found open ports with sensitive company data exposed to the internet. The data including a hidden directory and a WebDAV directory as well as login credentials with a hashed password. All of this was used during the engagement.
 
 Mitigation
@@ -126,7 +126,7 @@ Mitigation
 * If ports other than 80 or 443 must be exposed on a web server, implement TCP wrapping & firewall rules to auto-deny any IP that is not specifically whitelisted
 * On any login portal, do not have the admins name listed in a note for anyone to see. This is currently the case on the login portal for the hidden directory
 
-#### Security Misconfiguration: Brute Force Vulnerability ####
+### Security Misconfiguration: Brute Force Vulnerability ###
 
 The Red Team found a login portal that gave away the username for the admin of the directory. This was 50% of the information needed for them to successfully perform a dictionary brute force attack to gain access.
 
@@ -137,7 +137,7 @@ Mitigation
 * Enable a random 1-3 second delay on password validation to slow down any brute force attacks
 * If more than 20 failed login attempts from the same IP address occurs sitewide within 10 minutes, blacklist that IP until it can be reviewed
 
-#### Security Misconfiguration: Unrestricted File Upload ####
+### Security Misconfiguration: Unrestricted File Upload ###
 
 The Red Team found that when they gained access to the WebDAV directory through compromised credentials that they had unrestricted access to upload any kind of files. They used this to upload a malicious file that then called back to their C2 infrastructure and allowed them to gain shell access to the system.
 
@@ -149,21 +149,21 @@ Mitigation
 * Require strong & complex passwords for every user that has access to the WebDAV directory
 * Set WebDAV to read only if not onsite at the company
 
-#### CVE-2019-6579: Port 80 open with public access ####
+### CVE-2019-6579: Port 80 open with public access ###
 
 The Red Team found that they could gain access to the web server through unencrypted HTTP communication on port 80.
 
 Mitigation
 * Close port 80 to the internet & only allow traffic using HTTP over TLS on port 443
 
-##### CVE-2015-8562: Joomla Remote Code Execution Vulnerability ####
+#### CVE-2015-8562: Joomla Remote Code Execution Vulnerability ###
 
 The Red Team's malicious payload contained PHP code which allowed them to abuse the HTTP user-Agent Header and execute commands, specifically calling back to the C2 infrastructure and gaining shell access to the machine.
 
 Mitigation
 * Upgrade Joomla to the latest version
 
-#### Local File Inclusion ####
+### Local File Inclusion ###
 
 The Red Team was able to gain access to sensitive information, including credentials and the target file. The Red Team was also able to access directories that were clearly marked as not being intended to be exposed to the internet.
 
@@ -173,7 +173,7 @@ Mitigation
 * Apply strict permissions to directories and only give access to registered users
 * Remove all references of directories not exposed from material that is designed to be exposed. There were multiple references to the hidden directory available on the web server
 
-#### Unsalted Hashed Passwords ####
+### Unsalted Hashed Passwords ###
 
 The Red Team obtained a password hash during the engagement. An open source tool was able to quickly break the hash and allowed the Red Team to gain login credentials
 
@@ -182,7 +182,7 @@ Mitigation
 * Do not have any files that contain password hashes exposed to the internet
 * Salt all hashes
 
-#### Weak Passwords ####
+### Weak Passwords ###
 
 The Red Team found that both the password they were able to Brute Force and the hashed password they were able to crack were short and not complex.
 
@@ -192,7 +192,7 @@ Mitigation
 * Require all passwords to contain at minimum 1 special character (!, %, *, etc)
 * Require all passwords not be commonly used words, employees names, company names, or in the dictionary
 
-#### Outdated Apache Version ####
+### Outdated Apache Version ###
 
 The Red Team found the version of Apache to be running was 2.4.29 which has numerous known vulnerabilities for Remote Code Execution, Buffer or Heap Overflow attacks, and numerous other issues that are considered critical and exploitable.
 
