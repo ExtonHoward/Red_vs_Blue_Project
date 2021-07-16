@@ -49,15 +49,15 @@ Now to enter the secret folder. Attempted no credentials, no password, and a cou
 hydra -l ashton -P /usr/share/wordlists/rockyou.txt -s 80 -f -vV 192.168.1.105 http-get /company_folders/secret_folder -t 40
 ```
 
-![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt_Hydra.JPG "Ashton's login credentials")
+![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt_Hydra1.JPG "Ashton's login credentials")
 
 Now to login to the Secret Folder & see what's there. Logging in allowed me to find a file called `connect_to_corp_server` and inside I found directions to a WebDAV server along with a new user name (Ryan) and a password hash. At a glance, the hash appears to be MD5. Ran Hash Identifier to confirm it is MD5. Used crackstation.net to see if it is easily cracked in their database or if more powerful cracking needed to be done. Crackstation.net returned the credentials and confirmed it was an unsalted MD5 hash.
 
-![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt_secret_file.JPG "connect-to_corp_server")
+![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt_secret_file1.JPG "connect-to_corp_server")
 
-![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt-hash-id.JPG "Hash-Identifier")
+![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt_hash_id1.JPG "Hash-Identifier")
 
-![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt-crackstation.JPG "crackstation.net")
+![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt_crackstation1.JPG "crackstation.net")
 
 Followed the directions to gain access to the WebDAV server & logged in with Ryan's credentials. Found the WebDAV had remote unrestricted upload permissions. Crafted a payload using MSFVenom to create a PHP reverse shell and uploaded into the WebDAV directory.
 
@@ -77,7 +77,7 @@ Dropped into a full shell, located the target file, and read out the flag.
 
 ![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt_shell.JPG "Shell")
 
-![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt_Flag.JPG "Flag")
+![alt text](https://github.com/ExtonHoward/Red_vs_Blue_Project/blob/main/screenshots/rt_flag1.JPG "Flag")
 
 
 ## Blue Team - Analysis of Attack ##
