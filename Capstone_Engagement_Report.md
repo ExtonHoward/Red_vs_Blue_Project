@@ -156,7 +156,7 @@ The Red Team found that they could gain access to the web server through unencry
 Mitigation
 * Close port 80 to the internet & only allow traffic using HTTP over TLS on port 443
 
-#### CVE-2015-8562: Joomla Remote Code Execution Vulnerability ###
+### CVE-2015-8562: Joomla Remote Code Execution Vulnerability ###
 
 The Red Team's malicious payload contained PHP code which allowed them to abuse the HTTP user-Agent Header and execute commands, specifically calling back to the C2 infrastructure and gaining shell access to the machine.
 
